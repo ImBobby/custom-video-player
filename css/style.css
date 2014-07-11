@@ -1,0 +1,122 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.video-container {
+    position: relative;
+}
+
+video {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.video-controls {
+    background: red;
+    /*opacity: 0;*/
+    transition: all 350ms ease;
+}
+
+.video-controls:-moz-full-screen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+
+
+/* Icomoon
+--------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'video';
+    src:url('../fonts/video.eot?ypja40');
+    src:url('../fonts/video.eot?#iefixypja40') format('embedded-opentype'),
+        url('../fonts/video.woff?ypja40') format('woff'),
+        url('../fonts/video.ttf?ypja40') format('truetype'),
+        url('../fonts/video.svg?ypja40#video') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    font-family: 'video';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-expand:before {
+    content: "\e600";
+}
+.icon-contract:before {
+    content: "\e601";
+}
+.icon-cog:before {
+    content: "\e602";
+}
+.icon-play:before {
+    content: "\e603";
+}
+.icon-play2:before {
+    content: "\e604";
+}
+.icon-pause:before {
+    content: "\e605";
+}
+.icon-stop:before {
+    content: "\e606";
+}
+.icon-backward:before {
+    content: "\e607";
+}
+.icon-forward:before {
+    content: "\e608";
+}
+.icon-first:before {
+    content: "\e609";
+}
+.icon-last:before {
+    content: "\e60a";
+}
+.icon-previous:before {
+    content: "\e60b";
+}
+.icon-next:before {
+    content: "\e60c";
+}
+.icon-volume-high:before {
+    content: "\e60d";
+}
+.icon-volume-medium:before {
+    content: "\e60e";
+}
+.icon-volume-low:before {
+    content: "\e60f";
+}
+.icon-volume-mute:before {
+    content: "\e610";
+}
+.icon-volume-mute2:before {
+    content: "\e611";
+}
