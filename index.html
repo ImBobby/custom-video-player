@@ -31,14 +31,29 @@
 
                     </div>
                     <div class="grid__col grid__col--s7">
+
+                        <div class="grid">
+                            <div class="grid__col grid__col--s10">
+                                
+                                <input
+                                    class="video-controls"
+                                    type="range"
+                                    value="0"
+                                    step="1"
+                                    min="0"
+                                    data-video-seek>
+
+                            </div>
+                            <div class="grid__col grid__col--s2 align-right">
+                                
+                                <small id="videoDurationMin">0</small>:<small id="videoDurationSec">00</small>
+                                /
+                                <small id="videoDuration"></small>
+
+                            </div>
+                        </div>
                         
-                        <input
-                            class="video-controls"
-                            type="range"
-                            value="0"
-                            step="1"
-                            min="0"
-                            data-video-seek>
+                                
 
                     </div>
                     <div class="grid__col grid__col--s3">
@@ -78,10 +93,6 @@
             </div>
 
         </div> <!-- /.video-container -->
-
-
-        <p>video duration: <span id="videoDuration"></span></p>
-        <p>video playing: <span id="videoDurationMin">0</span>:<span id="videoDurationSec">00</span></p>
     </div>
 
     <script src="js/main.js"></script>

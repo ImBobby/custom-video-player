@@ -10,6 +10,10 @@
     content: '';
 }
 
+.align-right {
+    text-align: right;
+}
+
 .container {
     width: 95%;
     max-width: 500px;
@@ -41,6 +45,8 @@ video {
     bottom: 0;
     left: 0;
     width: 100%;
+    font-size: .7em;
+    color: #fff;
     background: rgba(0,0,0,.7);
     opacity: 0;
     transition: all 350ms ease;
