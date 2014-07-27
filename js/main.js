@@ -1,16 +1,17 @@
 var Pluit = (function () {
 
-    var video           = document.querySelector('video')
-      , videoWrapper    = document.querySelector('.video-container')
+    var video               = document.querySelector('video')
+      , videoWrapper        = document.querySelector('.video-container')
 
-      , videoCtrlWrap   = document.querySelector('.video-controls-wrap')
-      , videoCtrl       = document.querySelectorAll('[data-video-control]')
-      , videoVolumeCtrl = document.querySelector('[data-video="volume"]')
-      , videoSeekCtrl   = document.querySelector('[data-video-seek]')
+      , videoCtrlWrap       = document.querySelector('.video-controls-wrap')
+      , videoCtrl           = document.querySelectorAll('[data-video-control]')
+      , videoVolumeCtrl     = document.querySelector('[data-video="volume"]')
+      , videoSeekCtrl       = document.querySelector('[data-video-seek]')
+      , videoFullscreenCtrl = document.querySelector('[data-video-control="fullscreen"]')
 
-      , videoDuration   = document.querySelector('#videoDuration')
-      , videoDurationM  = document.querySelector('#videoDurationMin')
-      , videoDurationS  = document.querySelector('#videoDurationSec')
+      , videoDuration       = document.querySelector('#videoDuration')
+      , videoDurationM      = document.querySelector('#videoDurationMin')
+      , videoDurationS      = document.querySelector('#videoDurationSec')
       ;
 
     var vidAction = {
@@ -229,6 +230,28 @@ var Pluit = (function () {
         }
     };
 
+    var setVideoFullscreen = function () {
+        setFullscreen(videoWrapper);
+        setVideoCtrlState(videoFullscreenCtrl, vidAction.exitFullscreen);
+    };
+
+    var setVideoNoFullscreen = function () {
+        noFullscreen();
+        setVideoCtrlState(videoFullscreenCtrl, vidAction.fullscreen);
+    };
+
+    var toggleVideoFullscreen = function () {
+
+        if ( document.webkitIsFullScreen ) {
+            setVideoNoFullscreen();
+        } else if ( document.mozFullScreen ) {
+            setVideoNoFullscreen();
+        } else {
+            setVideoFullscreen();
+        }
+
+    };
+
 
     /* Event listener
     --------------------------------------------------------------------------- */
@@ -237,6 +260,7 @@ var Pluit = (function () {
     video.addEventListener('ended', setVideoCtrlStart, false);
     video.addEventListener('timeupdate', setVideoRealtime, false);
     video.addEventListener('click', setVideoPlayback, false);
+    video.addEventListener('dblclick', toggleVideoFullscreen, false);
 
     for (var i = videoCtrl.length - 1; i >= 0; i--) {
         videoCtrl[i].addEventListener('click', setVideoControl, false);
