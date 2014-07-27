@@ -5,6 +5,7 @@
     <title>Pluit</title>
 
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/baze-grid.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,32 +14,70 @@
         
         <div class="video-container">
             <video>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogv"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                <source src="video/for-the-birds.mp4" type="video/mp4"></source>
+                <source src="video/for-the-birds.ogv" type="video/ogv"></source>
+                <source src="video/for-the-birds.webm" type="video/webm"></source>
             </video>
 
-            <div class="video-controls">
-                
-                <button data-video-control="play">
-                    <span class="icon icon-play2"></span>
-                </button>
-                <button data-video-control="mute">
-                    <span class="icon icon-volume-high"></span>
-                </button>
-                <input type="range" value="1" step="0.01" min="0" max="1" data-video="volume">
-                <button data-video-control="fullscreen">
-                    <span class="icon icon-expand"></span>
-                </button>
+            
+            <div class="video-controls-wrap video-controls-wrap--show">
 
-                <br>
-                <br>
+                <div class="grid">
+                    <div class="grid__col grid__col--s1">
 
-                <input type="range" value="0" step="1" min="0" style="width: 100%;" data-video-seek>
-                
+                        <button class="video-controls" data-video-control="play">
+                            <span class="icon icon-play2"></span>
+                        </button>
+
+                    </div>
+                    <div class="grid__col grid__col--s7">
+                        
+                        <input
+                            class="video-controls"
+                            type="range"
+                            value="0"
+                            step="1"
+                            min="0"
+                            data-video-seek>
+
+                    </div>
+                    <div class="grid__col grid__col--s3">
+                        
+                        <div class="grid">
+                            <div class="grid__col grid__col--s4">
+                                
+                                <button class="video-controls" data-video-control="mute">
+                                    <span class="icon icon-volume-high"></span>
+                                </button>
+
+                            </div>
+                            <div class="grid__col grid__col--s8">
+
+                                <input
+                                    class="video-controls"
+                                    type="range"
+                                    value="1"
+                                    step="0.01"
+                                    min="0"
+                                    max="1"
+                                    data-video="volume">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="grid__col grid__col--s1">
+                        
+                        <button class="video-controls" data-video-control="fullscreen">
+                            <span class="icon icon-expand"></span>
+                        </button>
+
+                    </div>
+                </div> <!-- /.grid -->
+
             </div>
 
-        </div>
+        </div> <!-- /.video-container -->
 
 
         <p>video duration: <span id="videoDuration"></span></p>

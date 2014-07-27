@@ -3,6 +3,7 @@ var Pluit = (function () {
     var video           = document.querySelector('video')
       , videoWrapper    = document.querySelector('.video-container')
 
+      , videoCtrlWrap   = document.querySelector('.video-controls-wrap')
       , videoCtrl       = document.querySelectorAll('[data-video-control]')
       , videoVolumeCtrl = document.querySelector('[data-video="volume"]')
       , videoSeekCtrl   = document.querySelector('[data-video-seek]')
@@ -91,6 +92,14 @@ var Pluit = (function () {
     /* Event: video control
     --------------------------------------------------------------------------- */
 
+    var hideVideoControl = function () {
+        videoCtrlWrap.classList.remove('video-controls-wrap--show');
+    };
+
+    var showVideoControl = function () {
+        videoCtrlWrap.classList.add('video-controls-wrap--show');
+    };
+
     var setVideoControl = function () {
         var action = this.getAttribute('data-video-control');
 
@@ -98,12 +107,14 @@ var Pluit = (function () {
             case vidAction.play:
                 video.play();
                 setVideoCtrlState(this, vidAction.pause);
+                hideVideoControl();
 
                 break;
 
             case vidAction.pause:
                 video.pause();
                 setVideoCtrlState(this, vidAction.play);
+                showVideoControl();
 
                 break;
 
@@ -207,10 +218,12 @@ var Pluit = (function () {
 
         if ( !this.paused ) {
             this.pause();
+            showVideoControl();
 
             setVideoCtrlState(_videoCtrl, 'play');
         } else {
             this.play();
+            hideVideoControl();
 
             setVideoCtrlState(_videoCtrl, 'pause');
         }

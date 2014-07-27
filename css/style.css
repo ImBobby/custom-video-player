@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.cf:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
 .container {
     width: 95%;
     max-width: 500px;
@@ -20,6 +26,17 @@ video {
 }
 
 .video-controls {
+    width: 100%;
+    border: 0;
+    color: #fff;
+    background: none;
+}
+
+.video-controls:focus {
+    outline: none;
+}
+
+.video-controls-wrap {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -29,14 +46,18 @@ video {
     transition: all 350ms ease;
 }
 
-.video-controls:-moz-full-screen {
+.video-controls-wrap--show {
+    opacity: 1;
+}
+
+.video-controls-wrap:-moz-full-screen {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
-.video-container:hover .video-controls {
+.video-container:hover .video-controls-wrap {
     opacity: 1;
 }
 
